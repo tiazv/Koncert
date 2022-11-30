@@ -8,5 +8,6 @@ public enum Zvrst {
     CLASSICAL,
     INDIE,
     HOUSE,
-    METAL
+    METAL,
+    NARODNO_ZABAVNA
 }
