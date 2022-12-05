@@ -18,9 +18,25 @@ public class Nastopajoci {
     }
 
     @OneToMany(mappedBy = "nastopajoci", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    Collection<Koncert> koncertu;
+    Collection<Koncert> koncert;
     private String naziv;
     private Zvrst zvrst;
+
+    public Collection<Koncert> getKoncert() {
+        return koncert;
+    }
+
+    public void setKoncert(Collection<Koncert> koncert) {
+        this.koncert = koncert;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
 
     public Nastopajoci() {
         // TODO - implement Nastopajoci.Nastopajoci

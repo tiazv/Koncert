@@ -29,6 +29,33 @@ public class Sporocilo {
     private String telo;
     private String cas_nastanka;
 
+    public Uporabnik getUporabnik() {
+        return uporabnik;
+    }
+
+    public void setUporabnik(Uporabnik uporabnik) {
+        this.uporabnik = uporabnik;
+    }
+
+    public Skupina getSkupina() {
+        return skupina;
+    }
+
+    public void setSkupina(Skupina skupina) {
+        this.skupina = skupina;
+    }
+
+    public String getTelo() {
+        return telo;
+    }
+
+    public String getCas_nastanka() {
+        return cas_nastanka;
+    }
+
+    public void setCas_nastanka(String cas_nastanka) {
+        this.cas_nastanka = cas_nastanka;
+    }
 
     public void setTelo(String telo) {
         this.telo = telo;
