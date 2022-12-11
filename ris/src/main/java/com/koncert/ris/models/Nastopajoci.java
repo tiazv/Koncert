@@ -2,6 +2,7 @@ package com.koncert.ris.models;
 
 import jakarta.persistence.*;
 import java.util.*;
+
 @Entity
 public class Nastopajoci {
     @Id
@@ -21,6 +22,15 @@ public class Nastopajoci {
     Collection<Koncert> koncert;
     private String naziv;
     private Zvrst zvrst;
+    private boolean skupina;
+
+    public boolean isSkupina() {
+        return skupina;
+    }
+
+    public void setSkupina(boolean skupina) {
+        this.skupina = skupina;
+    }
 
     public Collection<Koncert> getKoncert() {
         return koncert;
@@ -40,6 +50,6 @@ public class Nastopajoci {
 
     public Nastopajoci() {
         // TODO - implement Nastopajoci.Nastopajoci
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
 }

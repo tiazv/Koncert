@@ -19,12 +19,16 @@ public class Sporocilo {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "uporabnik_id")
+
+    @JoinColumn(name = "uporabnik_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    Uporabnik uporabnik;
+    @ManyToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "skupina_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-
-    Uporabnik uporabnik;
     Skupina skupina;
     private String telo;
     private String cas_nastanka;

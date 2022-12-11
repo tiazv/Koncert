@@ -15,9 +15,11 @@ public class Uporabnik {
     public void setId(Long id) {
         this.id = id;
     }
-    //@OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 
-    Collection<Ocena> oceno;
+    @OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    Collection<Ocena> ocena;
+
+    @OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Sporocilo> Sporocilo;
     private String ime;
     private String priimek;
@@ -25,12 +27,12 @@ public class Uporabnik {
     private String geslo;
     private boolean admin;
 
-    public Collection<Ocena> getOceno() {
-        return oceno;
+    public Collection<Ocena> getOcena() {
+        return ocena;
     }
 
-    public void setOceno(Collection<Ocena> oceno) {
-        this.oceno = oceno;
+    public void setOcena(Collection<Ocena> ocena) {
+        this.ocena = ocena;
     }
 
     public Collection<com.koncert.ris.models.Sporocilo> getSporocilo() {
@@ -83,7 +85,7 @@ public class Uporabnik {
 
     public Uporabnik() {
         // TODO - implement Uporabnik.Uporabnik
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
 
     /**

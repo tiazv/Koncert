@@ -16,8 +16,8 @@ public class Skupina {
         this.id = id;
     }
     @OneToMany(mappedBy = "skupina", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-
     Collection<Sporocilo> sporocilo;
+
     private String datum_kreacije;
     private String ime_skupine;
 

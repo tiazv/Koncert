@@ -33,6 +33,11 @@ public class KoncertController {
         return koncertDao.findById(id);
     }
 
+    @PostMapping("/dodaj")
+    public Koncert dodajKoncert(@RequestBody Koncert koncert){
+        return koncertDao.save(koncert);
+    }
+
     @PostMapping("/nastopajoci/{id}koncerti")
         public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){
         return nastopajociDao.findById(id).map(nastopajoci -> {
