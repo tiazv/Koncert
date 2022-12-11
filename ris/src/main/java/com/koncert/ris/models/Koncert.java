@@ -86,7 +86,7 @@ public class Koncert {
     public Koncert() {
 
         // TODO - implement Koncert.Koncert
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
     /**
      *

@@ -84,7 +84,7 @@ public class Uporabnik {
 
     public Uporabnik() {
         // TODO - implement Uporabnik.Uporabnik
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
 
     /**

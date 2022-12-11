@@ -1,7 +1,11 @@
 package com.koncert.ris.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 public class Nastopajoci {
     @Id
@@ -9,18 +13,18 @@ public class Nastopajoci {
     private Long id;
 
     public Long getId() {
-
         return id;
     }
     public void setId(Long id) {
-
         this.id = id;
     }
 
     @OneToMany(mappedBy = "nastopajoci", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Koncert> koncert;
+
     private String naziv;
     private Zvrst zvrst;
+
 
     public Collection<Koncert> getKoncert() {
         return koncert;
@@ -40,6 +44,6 @@ public class Nastopajoci {
 
     public Nastopajoci() {
         // TODO - implement Nastopajoci.Nastopajoci
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
 }
