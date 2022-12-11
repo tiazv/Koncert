@@ -18,14 +18,17 @@ public class Koncert {
     public void setId(Long id) {
         this.id = id;
     }
-    @OneToMany(mappedBy = "koncert", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "nastopajoci_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     Nastopajoci nastopajoci;
-    Collection<Ocena> oceno;
+
+    @OneToMany(mappedBy = "koncert", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    Collection<Ocena> ocena;
+
     private String naziv;
     private String datum;
     private String lokacija;
@@ -40,12 +43,12 @@ public class Koncert {
         this.nastopajoci = nastopajoci;
     }
 
-    public Collection<Ocena> getOceno() {
-        return oceno;
+    public Collection<Ocena> getOcena() {
+        return ocena;
     }
 
-    public void setOceno(Collection<Ocena> oceno) {
-        this.oceno = oceno;
+    public void setOcena(Collection<Ocena> ocena) {
+        this.ocena = ocena;
     }
 
     public String getNaziv() {

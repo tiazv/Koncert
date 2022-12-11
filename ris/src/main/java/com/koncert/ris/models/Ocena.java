@@ -19,12 +19,17 @@ public class Ocena {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "koncert_id")
     @JoinColumn(name = "uporabnik_id")
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JsonIgnore
     Uporabnik uporabnik;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "koncert_id")
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonIgnore
     Koncert koncert;
+
     private int ocena;
     private String komentar;
 
