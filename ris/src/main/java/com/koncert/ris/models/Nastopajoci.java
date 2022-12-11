@@ -32,6 +32,14 @@ public class Nastopajoci {
         this.skupina = skupina;
     }
 
+    public Zvrst getZvrst() {
+        return zvrst;
+    }
+
+    public void setZvrst(Zvrst zvrst) {
+        this.zvrst = zvrst;
+    }
+
     public Collection<Koncert> getKoncert() {
         return koncert;
     }

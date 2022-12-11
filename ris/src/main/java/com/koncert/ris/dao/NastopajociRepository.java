@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface NastopajociRepository extends CrudRepository<Nastopajoci, Long> {
 
-        /*@Query(value = "SELECT * FROM nastopajoci n WHERE n.id=:id AND (n.zvrst=:POP OR n.zvrst=:ROCK)", nativeQuery = true)
+        /*@Query(value = "SELECT * FROM nastopajoci n WHERE n.id=:id AND (n.zvrst=POP OR n.zvrst=ROCK)", nativeQuery = true)
+        List<Nastopajoci> vrniZvrstNastopajocega(Zvrst zvrst, long id);*/
+
+        /*@Query(value = "SELECT * FROM nastopajoci n WHERE n.zvrst=POP AND n.", nativeQuery = true)
         List<Nastopajoci> vrniZvrstNastopajocega(Zvrst zvrst, long id);*/
 }

@@ -56,5 +56,7 @@ public class NastopajociController {
     /*@GetMapping("/zvrst/{zvrst}/id/{id}")
     public boolean vrniZvrstNastopajocega(@PathVariable(name = "zvrst") Zvrst zvrst, @PathVariable(name = "id") long id) {
         return (nastopajociDao.vrniZvrstNastopajocega(zvrst, id).size() == 1);
-    }*/
+    }
+     //
+    */
 }
