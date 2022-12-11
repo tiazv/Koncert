@@ -57,6 +57,6 @@ public class NastopajociController {
     public boolean vrniZvrstNastopajocega(@PathVariable(name = "zvrst") Zvrst zvrst, @PathVariable(name = "id") long id) {
         return (nastopajociDao.vrniZvrstNastopajocega(zvrst, id).size() == 1);
     }
-     //
+     //kompleksna poizveedva (projekt)
     */
 }
