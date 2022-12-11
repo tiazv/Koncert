@@ -51,7 +51,7 @@ public class SkupinaController {
         return true;
     }
 
-    //osnovni del kompleksna z 2
+    //osnovni del kompleksna z dvema
     @GetMapping("/dolocenaskupina")
     public Iterable<Skupina> vrniDolocenoSkupino() {
         return (skupinaDao.vrniDolocenoSkupino());
