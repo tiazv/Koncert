@@ -19,7 +19,9 @@ public class Ocena {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "uporabnik_id")
+
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @JsonIgnore
     Uporabnik uporabnik;

@@ -15,6 +15,7 @@ public class Uporabnik {
     public void setId(Long id) {
         this.id = id;
     }
+
     @OneToMany(mappedBy = "uporabnik", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Collection<Ocena> ocena;
 

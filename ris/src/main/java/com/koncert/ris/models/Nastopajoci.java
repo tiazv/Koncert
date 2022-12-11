@@ -3,8 +3,6 @@ package com.koncert.ris.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Nastopajoci {
@@ -24,6 +22,15 @@ public class Nastopajoci {
 
     private String naziv;
     private Zvrst zvrst;
+    private boolean skupina;
+
+    public boolean isSkupina() {
+        return skupina;
+    }
+
+    public void setSkupina(boolean skupina) {
+        this.skupina = skupina;
+    }
 
 
     public Collection<Koncert> getKoncert() {
