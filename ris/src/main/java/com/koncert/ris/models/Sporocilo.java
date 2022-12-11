@@ -19,7 +19,7 @@ public class Sporocilo {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "uporabnik_id")
+    //@JoinColumn(name = "uporabnik_id")
     @JoinColumn(name = "skupina_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
