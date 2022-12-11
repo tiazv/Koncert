@@ -12,11 +12,11 @@ public interface SkupinaRepository extends CrudRepository<Skupina, Long> {
     List<Skupina> vrniDolocenoSkupino();
 
 
-    @Query(value="SELECT * FROM skupina s WHERE s.st_udelezencev>=3 AND s.st_udelezencev>=6 AND s.ime_skupine LIKE 'A%'", nativeQuery=true)
+    @Query(value="SELECT * FROM skupina s WHERE s.st_udelezencev>=3 AND s.st_udelezencev<=6 AND s.ime_skupine LIKE 'A%'", nativeQuery=true)
     List<Skupina> vrniSkupineVecje();
 
 
-@Query(value="SELECT * FROM skupina s WHERE s.datum_kreacije LIKE '2021%' AND s.st_udelezencev>5", nativeQuery=true)
+    @Query(value="SELECT * FROM skupina s WHERE s.datum_kreacije LIKE '2021%' AND s.st_udelezencev<=5", nativeQuery=true)
     List<Skupina> vrniNekaj();
 
 }
