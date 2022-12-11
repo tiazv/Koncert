@@ -41,10 +41,6 @@ public class KoncertController {
     }
     */
 
-    @PostMapping("/dodaj")
-    public Koncert dodajKoncert(@RequestBody Koncert koncert){
-        return koncertDao.save(koncert);
-    }
 
     @PostMapping("/nastopajoci/{id}koncerti")
         public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){

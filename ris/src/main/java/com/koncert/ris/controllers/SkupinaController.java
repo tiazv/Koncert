@@ -57,7 +57,7 @@ public class SkupinaController {
         return (skupinaDao.vrniDolocenoSkupino());
     }
 
-//projektni del 1. kompleksna s tremi
+    //projektni del 1. kompleksna s tremi
     @GetMapping("/vecjeskupine")
     public Iterable<Skupina> vrniSkupineVecje() {
         return (skupinaDao.vrniSkupineVecje());
