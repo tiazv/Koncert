@@ -53,8 +53,19 @@ public class NastopajociController {
     }
 
     //kompleksna poizvedba (osnovni del)
-    /*@GetMapping("/zvrst/{zvrst}/id/{id}")
-    public boolean vrniZvrstNastopajocega(@PathVariable(name = "zvrst") Zvrst zvrst, @PathVariable(name = "id") long id) {
-        return (nastopajociDao.vrniZvrstNastopajocega(zvrst, id).size() == 1);
-    }*/
+    @GetMapping("/vrninastopajocepop")
+    public Iterable<Nastopajoci> vrniPopNastopajoce() {
+        return (nastopajociDao.vrniPopNastopajoce());
+    }
+
+     //kompleksna poizvedba (projekt)
+     @GetMapping("/vrninastopajocerock")
+     public Iterable<Nastopajoci> vrniRockNastopajoce() {
+         return (nastopajociDao.vrniRockNastopajoce());
+     }
+
+    @GetMapping("/vrninastopajoceskupina")
+    public Iterable<Nastopajoci> vrniSkupinoNastopajoce() {
+        return (nastopajociDao.vrniSkupinoNastopajoce());
+    }
 }
