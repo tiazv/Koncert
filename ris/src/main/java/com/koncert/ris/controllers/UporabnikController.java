@@ -49,4 +49,23 @@ public class UporabnikController {
         uporabnikDao.deleteById(id);
         return true;
     }
+
+
+    // kompleksna poizvedba (osnovni del)
+    // vrne uporabnika z dolločenih imenom in priimkom
+    @GetMapping("/{ime}/{priimek}")
+    public Iterable<Uporabnik> vrniDolocenegaUporabnika(@PathVariable(name = "ime") String ime, @PathVariable(name = "priimek") String priimek) {
+        return uporabnikDao.vrniDolocenegaUporabnika(ime, priimek);
+    }
+
+    @GetMapping("/vrniuporabnikeadmine/{admin}")
+    public Iterable<Uporabnik> vrniUporabnikeAdmine(@PathVariable(name = "admin") boolean admin) {
+        return (uporabnikDao.vrniUporabnikeAdmine(admin));
+    }
+
+    @GetMapping("/vrninavadnega/{priimek}")
+        public Iterable<Uporabnik> vrniNavadnega(@PathVariable(name = "priimek") String priimek) {
+            return uporabnikDao.vrniNavadnega(priimek);
+        }
+
 }

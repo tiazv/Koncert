@@ -69,4 +69,12 @@ public class SkupinaController {
         return (skupinaDao.vrniNekaj());
     }
 
+    //osnovni del vsaj 2 modela
+    /*
+    @GetMapping("/stevilo/{st_sporocil}")
+    public Iterable<Skupina> vrniHihi(@PathVariable(name = "st_sporocil") int st_sporocil){
+        return skupinaDao.vrniHihi(st_sporocil);
+    }
+    */
+
 }
