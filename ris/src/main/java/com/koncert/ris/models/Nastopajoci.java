@@ -48,7 +48,7 @@ public class Nastopajoci {
     public void setZvrst(Zvrst zvrst) {
         this.zvrst = zvrst;
     }
-    
+
     public Collection<Koncert> getKoncert() {
         return koncert;
     }
