@@ -23,6 +23,15 @@ public class Nastopajoci {
     private String naziv;
     private Zvrst zvrst;
     private boolean skupina;
+    private int st_album;
+
+    public int getSt_album() {
+        return st_album;
+    }
+
+    public void setSt_album(int st_album) {
+        this.st_album = st_album;
+    }
 
     public boolean isSkupina() {
         return skupina;
