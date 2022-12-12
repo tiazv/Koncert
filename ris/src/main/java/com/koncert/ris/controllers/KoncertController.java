@@ -5,6 +5,9 @@ import com.koncert.ris.dao.NastopajociRepository;
 import com.koncert.ris.models.Koncert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
@@ -25,18 +28,19 @@ public class KoncertController {
     @GetMapping("/koncerti")
     public Iterable<Koncert> vrniKoncerte() {
         return koncertDao.findAll();
-
     }
 
-    @GetMapping("/koncerti/{id}")
+    @GetMapping("/{id}")
     public Optional<Koncert> vrniKoncerte(@PathVariable(name = "id") Long id){
         return koncertDao.findById(id);
     }
-
-    @PostMapping("/dodaj")
-    public Koncert dodajKoncert(@RequestBody Koncert koncert){
+/*
+    @PostMapping("/dodajkoncerte")
+    public Koncert dodajKoncerte(@RequestBody Koncert koncert){
         return koncertDao.save(koncert);
     }
+    */
+
 
     @PostMapping("/nastopajoci/{id}koncerti")
         public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){

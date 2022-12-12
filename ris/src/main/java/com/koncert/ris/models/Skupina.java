@@ -20,6 +20,7 @@ public class Skupina {
 
     private String datum_kreacije;
     private String ime_skupine;
+    private int st_udelezencev;
 
     public Collection<Sporocilo> getSporocilo() {
         return sporocilo;
@@ -45,6 +46,13 @@ public class Skupina {
         this.ime_skupine = ime_skupine;
     }
 
+    public int getSt_udelezencev() {
+        return st_udelezencev;
+    }
+
+    public void setSt_udelezencev(int st_udelezencev) {
+        this.st_udelezencev = st_udelezencev;
+    }
     /**
      *
      * @param uporabnik
