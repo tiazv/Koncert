@@ -81,6 +81,13 @@ public class NastopajociController {
     }
 
     //kompleksna poizvedba (osnovni del 2)
-    @GetMapping("/vrnikoncertedva")
-    public Iterable<Nastopajoci> vrniKoncerteDva() {return (nastopajociDao.vrniKoncerteDva());}
+    @GetMapping("/vrni")
+    public Iterable<Nastopajoci> vrniKoncerteDva() {
+        return (nastopajociDao.vrniKoncerteDva());
+    }
+
+    @GetMapping("/vrni/skupina/{skupina}")
+    public Iterable<Nastopajoci> vrniKoncerteSkupine(@PathVariable(name = "skupina") boolean skupina) {
+        return (nastopajociDao.vrniKoncerteSkupine(skupina));
+    }
 }

@@ -34,6 +34,20 @@ public interface NastopajociRepository extends CrudRepository<Nastopajoci, Long>
         /*@Query(value = "SELECT * FROM nastopajoci n WHERE zvrst=POP AND naziv LIKE "A%" AND , nativeQuery = true)
         List<Nastopajoci> vrniZvrstNastopajocega(Zvrst zvrst, long id);*/
 
-        @Query(value="SELECT id, count(koncert) AS 'st' FROM nastopajoci n WHERE n.st = 1", nativeQuery=true)
+        //izpis id-ja in naziva koncerta ter naziv nastopajocega glede na njegov id
+        /*@Query(value="SELECT n FROM nastopajoci n where size(n.koncert) > 1", nativeQuery=true)
+        List<Nastopajoci> vrniKoncerteDva();*/
+
+        @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) >= 2")
         List<Nastopajoci> vrniKoncerteDva();
+
+        @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) > 1 AND n.skupina=:skupina")
+        List<Nastopajoci> vrniKoncerteSkupine(boolean skupina);
+
+
+        //SELECT id, count(koncert.id) AS 'st' FROM nastopajoci n WHERE n.st = 1
+        //SELECT k.id, k.naziv, n.naziv  FROM koncert k INNER JOIN nastopajoci n ON k.nastopajoci_id = n.id WHERE k.nastopajoci_id = 2
+        //SELECT COUNT(k.id) AS st_koncertov, n.naziv FROM koncert k  INNER JOIN nastopajoci n ON k.nastopajoci_id = n.id WHERE k.nastopajoci_id = 2
+
+
 }

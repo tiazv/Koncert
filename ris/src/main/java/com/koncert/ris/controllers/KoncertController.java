@@ -67,6 +67,9 @@ public class KoncertController {
         return true;
     }
 
+    /*@GetMapping("/vrni")
+    public Iterable<Koncert> vrniKoncerteDva() {return (koncertDao.vrniKoncerteDva());}*/
+
 
 
 }
