@@ -1,4 +1,5 @@
 package com.koncert.ris.controllers;
+import com.koncert.ris.dao.SkupinaRepository;
 import com.koncert.ris.dao.SporociloRepository;
 import com.koncert.ris.models.Koncert;
 import com.koncert.ris.models.Skupina;
@@ -8,11 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController
+@RestController 
 @RequestMapping("/sporocila")
 public class SporociloController {
     @Autowired
     private SporociloRepository sporociloDao;
+    @Autowired
+    private SkupinaRepository skupinaDao;
 
     @GetMapping("/hello")
     public String hello(){
@@ -28,15 +31,14 @@ public class SporociloController {
     public Optional<Sporocilo> vrniSporocilo(@PathVariable(name = "id") Long id){
         return sporociloDao.findById(id);
     }
-/*
-    @PostMapping("/nastopajoci/{id}koncerti")
-    public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){
-        return nastopajociDao.findById(id).map(nastopajoci -> {
-            koncert.setNastopajoci(nastopajoci);
-            return koncertDao.save(koncert);
+
+    @PostMapping("/skupine/{id}sporocila")
+    public Optional<Sporocilo> dodajSporocila(@RequestBody Sporocilo sporocilo, @PathVariable(name = "id") Long id){
+        return skupinaDao.findById(id).map(skupina -> {
+            sporocilo.setSkupina(skupina);
+            return sporociloDao.save(sporocilo);
         });
     }
-*/
 
     @PutMapping("/spremeni/{id}")
     public Sporocilo spremeniSporocilo(@PathVariable(name="id") Long id, @RequestBody Sporocilo sporocilo) {
