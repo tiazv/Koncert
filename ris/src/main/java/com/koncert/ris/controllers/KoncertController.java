@@ -3,6 +3,7 @@ package com.koncert.ris.controllers;
 import com.koncert.ris.dao.KoncertRepository;
 import com.koncert.ris.dao.NastopajociRepository;
 import com.koncert.ris.models.Koncert;
+import com.koncert.ris.models.Nastopajoci;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +42,6 @@ public class KoncertController {
     }
     */
 
-
     @PostMapping("/nastopajoci/{id}koncerti")
         public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){
         return nastopajociDao.findById(id).map(nastopajoci -> {
@@ -49,5 +49,27 @@ public class KoncertController {
             return koncertDao.save(koncert);
         });
     }
+
+    @PutMapping("/spremeni/{id}")
+    public Koncert spremeniKoncerte(@PathVariable(name = "id") Long id, @RequestBody Koncert koncert) {
+        if (!koncertDao.existsById(id))
+            return null;
+
+        koncert.setId(id);
+        return koncertDao.save(koncert);
+    }
+
+    @DeleteMapping("/zbrisi/{id}")
+    public Boolean izbrisiKoncerte(@PathVariable(name = "id") Long id) {
+        if (!koncertDao.existsById(id))
+            return false;
+        koncertDao.deleteById(id);
+        return true;
+    }
+
+    /*@GetMapping("/vrni")
+    public Iterable<Koncert> vrniKoncerteDva() {return (koncertDao.vrniKoncerteDva());}*/
+
+
 
 }

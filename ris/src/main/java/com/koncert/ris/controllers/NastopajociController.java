@@ -58,14 +58,36 @@ public class NastopajociController {
         return (nastopajociDao.vrniPopNastopajoce());
     }
 
+
      //kompleksna poizvedba (projekt)
+     //artist zacne na c konca na y in ni skupina
+     @GetMapping("/{naziv}")
+     public Iterable<Nastopajoci> vrniNastopajoceNaziv(@PathVariable(name = "naziv") String naziv) {
+         return nastopajociDao.vrniNastopajoceNaziv(naziv);
+     }
      @GetMapping("/vrninastopajocerock")
      public Iterable<Nastopajoci> vrniRockNastopajoce() {
          return (nastopajociDao.vrniRockNastopajoce());
      }
 
+     //artist ki zacne na m ina manj ko 3 albume in je skupina
+     @GetMapping("/skupina/{skupina}")
+     public Iterable<Nastopajoci> vrniNastopajoceSkupina(@PathVariable(name = "skupina") boolean skupina) {
+         return nastopajociDao.vrniNastopajoceSkupina(skupina);
+     }
     @GetMapping("/vrninastopajoceskupina")
     public Iterable<Nastopajoci> vrniSkupinoNastopajoce() {
         return (nastopajociDao.vrniSkupinoNastopajoce());
+    }
+
+    //kompleksna poizvedba (osnovni del 2)
+    @GetMapping("/vrni")
+    public Iterable<Nastopajoci> vrniKoncerteDva() {
+        return (nastopajociDao.vrniKoncerteDva());
+    }
+
+    @GetMapping("/vrni/skupina/{skupina}")
+    public Iterable<Nastopajoci> vrniKoncerteSkupine(@PathVariable(name = "skupina") boolean skupina) {
+        return (nastopajociDao.vrniKoncerteSkupine(skupina));
     }
 }

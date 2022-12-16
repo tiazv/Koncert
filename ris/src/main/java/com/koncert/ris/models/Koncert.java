@@ -32,7 +32,6 @@ public class Koncert {
     private String naziv;
     private String datum;
     private String lokacija;
-    private Zvrst zvrst;
     private String povezava_do_vstopnic;
 
     public Nastopajoci getNastopajoci() {
