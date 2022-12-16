@@ -3,6 +3,7 @@ package com.koncert.ris.controllers;
 import com.koncert.ris.dao.SkupinaRepository;
 import com.koncert.ris.models.Koncert;
 import com.koncert.ris.models.Skupina;
+import com.koncert.ris.models.Sporocilo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,30 +52,43 @@ public class SkupinaController {
         return true;
     }
 
-    //osnovni del kompleksna z dvema
+    //sprint1
     @GetMapping("/dolocenaskupina")
     public Iterable<Skupina> vrniDolocenoSkupino() {
         return (skupinaDao.vrniDolocenoSkupino());
     }
 
-    //projektni del 1. kompleksna s tremi
     @GetMapping("/vecjeskupine")
     public Iterable<Skupina> vrniSkupineVecje() {
         return (skupinaDao.vrniSkupineVecje());
     }
 
-    //projektni del 2. kompleksna s tremi
     @GetMapping("/nekaj")
     public Iterable<Skupina> vrniNekaj() {
         return (skupinaDao.vrniNekaj());
     }
 
-    //osnovni del vsaj 2 modela
-    /*
-    @GetMapping("/stevilo/{st_sporocil}")
-    public Iterable<Skupina> vrniHihi(@PathVariable(name = "st_sporocil") int st_sporocil){
+    //sprint2
+    @GetMapping("/stevilo/{skupina_id}")
+    public Iterable<Sporocilo> vrniVsaSporocilaIzDoloceneSkupine(@PathVariable(name = "skupina_id") int skupina_id){
+        return skupinaDao.vrniVsaSporocilaIzDoloceneSkupine(skupina_id);
+    }
+
+    @GetMapping("/hejci")
+    public Iterable<Sporocilo> vracam(){
+        return skupinaDao.vracam();
+    }
+
+    @GetMapping("/hejla")
+    public Iterable<Sporocilo> vrzemo(){
+        return skupinaDao.vrzemo();
+    }
+
+    @GetMapping("/st_sporocil/{st_sporocil}")
+    public Iterable<Sporocilo> vrniHihi(@PathVariable(name = "st_sporocil") int st_sporocil){
         return skupinaDao.vrniHihi(st_sporocil);
     }
-    */
+
+    //sprint3
 
 }
