@@ -69,25 +69,16 @@ public class SkupinaController {
     }
 
     //sprint2
-    @GetMapping("/stevilo/{skupina_id}")
-    public Iterable<Sporocilo> vrniVsaSporocilaIzDoloceneSkupine(@PathVariable(name = "skupina_id") int skupina_id){
-        return skupinaDao.vrniVsaSporocilaIzDoloceneSkupine(skupina_id);
+    @GetMapping("/vrniskupinossporocili/{stevilo}/{ime_skupine}")
+    public Iterable<Skupina> vrniSkupinoSSporocili(@PathVariable(name = "ime_skupine") String ime_skupine, @PathVariable(name = "stevilo") int stevilo){
+        return skupinaDao.vrniSkupinoSSporocili(stevilo, ime_skupine);
     }
 
-    @GetMapping("/hejci")
-    public Iterable<Sporocilo> vracam(){
-        return skupinaDao.vracam();
+    @GetMapping("/vrniskupinossporocili/{stevilo}/{st_udelezencev}")
+    public Iterable<Skupina> vrniSkupinoZVecKot(@PathVariable(name = "stevilo") int stevilo, @PathVariable(name = "st_udelezencev") int st_udelezencev){
+        return skupinaDao.vrniSkupinoZVecKot(stevilo, st_udelezencev);
     }
 
-    @GetMapping("/hejla")
-    public Iterable<Sporocilo> vrzemo(){
-        return skupinaDao.vrzemo();
-    }
-
-    @GetMapping("/st_sporocil/{st_sporocil}")
-    public Iterable<Sporocilo> vrniHihi(@PathVariable(name = "st_sporocil") int st_sporocil){
-        return skupinaDao.vrniHihi(st_sporocil);
-    }
 
     //sprint3
 

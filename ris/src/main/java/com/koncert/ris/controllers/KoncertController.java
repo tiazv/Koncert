@@ -35,12 +35,6 @@ public class KoncertController {
     public Optional<Koncert> vrniKoncerte(@PathVariable(name = "id") Long id){
         return koncertDao.findById(id);
     }
-/*
-    @PostMapping("/dodajkoncerte")
-    public Koncert dodajKoncerte(@RequestBody Koncert koncert){
-        return koncertDao.save(koncert);
-    }
-    */
 
     @PostMapping("/nastopajoci/{id}koncerti")
         public Optional<Koncert> dodajKoncerte(@RequestBody Koncert koncert, @PathVariable(name = "id") Long id){
