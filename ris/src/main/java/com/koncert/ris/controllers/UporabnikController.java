@@ -68,4 +68,19 @@ public class UporabnikController {
             return uporabnikDao.vrniNavadnega(priimek);
         }
 
+    @GetMapping("/vrniuporabnikasporociloocenaadmin/{st_sporocil}/{st_ocen}/{admin}")
+    public Iterable<Uporabnik> vrniUporabnikaSporociloOcenaAdmin(@PathVariable(name = "st_sporocil") int st_sporocil, @PathVariable(name = "st_ocen") int st_ocen, @PathVariable(name = "admin") boolean admin){
+        return uporabnikDao.vrniUporabnikaSporociloOcenaAdmin(st_sporocil, st_ocen, admin);
+    }
+
+    @GetMapping("/vrniuporabnikavecsporocilalivecocenneime/sporocila/{st_sporocil}/ocene/{st_ocen}/neime/{ime}")
+    public Iterable<Uporabnik> vrniUporabnikaVecSporocilAliVecOcenNeIme(@PathVariable(name = "st_sporocil") int st_sporocil, @PathVariable(name = "st_ocen") int st_ocen, @PathVariable(name = "ime") String ime){
+        return uporabnikDao.vrniUporabnikaVecSporocilAliVecOcenNeIme(st_sporocil, st_ocen, ime);
+    }
+
+    @GetMapping("/vrniuporabnikamanjampakvsajen/sporocila/{st_sporocil}/ocene/{st_ocen}")
+    public Iterable<Uporabnik> vrniUporabnikaManjAmpakVsajEn(@PathVariable(name = "st_sporocil") int st_sporocil, @PathVariable(name = "st_ocen") int st_ocen){
+        return uporabnikDao.vrniUporabnikaManjAmpakVsajEn(st_sporocil, st_ocen);
+    }
+
 }
