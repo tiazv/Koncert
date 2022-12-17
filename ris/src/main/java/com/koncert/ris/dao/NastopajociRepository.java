@@ -38,8 +38,8 @@ public interface NastopajociRepository extends CrudRepository<Nastopajoci, Long>
         /*@Query(value="SELECT n FROM nastopajoci n where size(n.koncert) > 1", nativeQuery=true)
         List<Nastopajoci> vrniKoncerteDva();*/
 
-        @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) >= 2")
-        List<Nastopajoci> vrniKoncerteDva();
+        @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) >=:stevilo")
+        List<Nastopajoci> vrniKoncerteDva(int stevilo);
 
         @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) > 1 AND n.skupina=:skupina")
         List<Nastopajoci> vrniKoncerteSkupine(boolean skupina);

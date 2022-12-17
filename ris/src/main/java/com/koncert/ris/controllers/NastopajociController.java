@@ -81,9 +81,9 @@ public class NastopajociController {
     }
 
     //kompleksna poizvedba (osnovni del 2)
-    @GetMapping("/vrni")
-    public Iterable<Nastopajoci> vrniKoncerteDva() {
-        return (nastopajociDao.vrniKoncerteDva());
+    @GetMapping("/vrni/stevilo/{stevilo}")
+    public Iterable<Nastopajoci> vrniKoncerteDva(@PathVariable(name = "stevilo") int stevilo) {
+        return (nastopajociDao.vrniKoncerteDva(stevilo));
     }
 
     @GetMapping("/vrni/skupina/{skupina}")
