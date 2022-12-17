@@ -3,6 +3,7 @@ package com.koncert.ris.controllers;
 import com.koncert.ris.dao.SkupinaRepository;
 import com.koncert.ris.models.Koncert;
 import com.koncert.ris.models.Skupina;
+import com.koncert.ris.models.Sporocilo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,30 +52,34 @@ public class SkupinaController {
         return true;
     }
 
-    //osnovni del kompleksna z dvema
+    //sprint1
     @GetMapping("/dolocenaskupina")
     public Iterable<Skupina> vrniDolocenoSkupino() {
         return (skupinaDao.vrniDolocenoSkupino());
     }
 
-    //projektni del 1. kompleksna s tremi
     @GetMapping("/vecjeskupine")
     public Iterable<Skupina> vrniSkupineVecje() {
         return (skupinaDao.vrniSkupineVecje());
     }
 
-    //projektni del 2. kompleksna s tremi
     @GetMapping("/nekaj")
     public Iterable<Skupina> vrniNekaj() {
         return (skupinaDao.vrniNekaj());
     }
 
-    //osnovni del vsaj 2 modela
-    /*
-    @GetMapping("/stevilo/{st_sporocil}")
-    public Iterable<Skupina> vrniHihi(@PathVariable(name = "st_sporocil") int st_sporocil){
-        return skupinaDao.vrniHihi(st_sporocil);
+    //sprint2
+    @GetMapping("/vrniskupinossporocili/{stevilo}/{ime_skupine}")
+    public Iterable<Skupina> vrniSkupinoSSporocili(@PathVariable(name = "ime_skupine") String ime_skupine, @PathVariable(name = "stevilo") int stevilo){
+        return skupinaDao.vrniSkupinoSSporocili(stevilo, ime_skupine);
     }
-    */
+
+    @GetMapping("/vrniskupinossporocili/{stevilo}/{st_udelezencev}")
+    public Iterable<Skupina> vrniSkupinoZVecKot(@PathVariable(name = "stevilo") int stevilo, @PathVariable(name = "st_udelezencev") int st_udelezencev){
+        return skupinaDao.vrniSkupinoZVecKot(stevilo, st_udelezencev);
+    }
+
+
+    //sprint3
 
 }
