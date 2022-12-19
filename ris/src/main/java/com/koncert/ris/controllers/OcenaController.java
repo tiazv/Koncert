@@ -34,17 +34,6 @@ public class OcenaController {
         return ocenaDao.findById(id);
     }
 
-    /*@PostMapping("/ocene/{id}koncert/{id}uporabnik")
-        public Optional<Ocena> dodajOceno(@RequestBody Ocena ocena, @PathVariable(name = "id") Long id){
-        return koncertDao.findById(id).map(koncert -> {
-            ocena.setKoncert(koncert);
-            return ocenaDao.save(ocena);
-        }); uporabnikDao.findById(id).map(uporabnik -> {
-                    ocena.setUporabnik(uporabnik);
-                    return ocenaDao.save(ocena);
-        }
-        );
-    }*/
     @PostMapping("/ocene/{id}koncert/{id2}uporabnik")
     public Optional<Optional<Ocena>> dodajOceno(@RequestBody Ocena ocena, @PathVariable(name = "id") Long id, @PathVariable(name = "id2") Long id2) {
         return koncertDao.findById(id).map(koncert -> {
