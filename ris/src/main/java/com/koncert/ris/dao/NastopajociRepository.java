@@ -38,6 +38,8 @@ public interface NastopajociRepository extends CrudRepository<Nastopajoci, Long>
         /*@Query(value="SELECT n FROM nastopajoci n where size(n.koncert) > 1", nativeQuery=true)
         List<Nastopajoci> vrniKoncerteDva();*/
 
+        /*@Query(value="SELECT k.id, k.naziv, n.naziv  FROM koncert k INNER JOIN nastopajoci n ON k.nastopajoci_id = n.id WHERE k.nastopajoci_id = 2", nativeQuery=true)
+        List<Nastopajoci> vrniKoncerteDve();*/
         @Query("SELECT n FROM Nastopajoci n WHERE size(n.koncert) >=:stevilo")
         List<Nastopajoci> vrniKoncerteDva(int stevilo);
 
@@ -49,5 +51,21 @@ public interface NastopajociRepository extends CrudRepository<Nastopajoci, Long>
         //SELECT k.id, k.naziv, n.naziv  FROM koncert k INNER JOIN nastopajoci n ON k.nastopajoci_id = n.id WHERE k.nastopajoci_id = 2
         //SELECT COUNT(k.id) AS st_koncertov, n.naziv FROM koncert k  INNER JOIN nastopajoci n ON k.nastopajoci_id = n.id WHERE k.nastopajoci_id = 2
 
+        //poizvedbe (sprint 3)
+        /*@Query("SELECT n FROM Nastopajoci n INNER JOIN Koncert k WHERE n.skupina=:skupina AND k.id=:id")
+        List<Nastopajoci> vrniOcenoKoncerta(boolean skupina, Long id);*/
+
+        /*@Query("SELECT n FROM Nastopajoci n INNER JOIN Koncert k WHERE size(k.ocena) =:stevilo")
+        List<Nastopajoci> vrniKoncert(int stevilo);*/
+
+        @Query("SELECT n FROM Nastopajoci n INNER JOIN Koncert k WHERE size(n.koncert) >=:stevilo AND size(k.ocena) =:stevilo2 AND n.skupina=:skupina")
+        List<Nastopajoci> vrniKoncertOceno(int stevilo, int stevilo2, boolean skupina);
+
+        @Query(value = "SELECT * FROM nastopajoci n INNER JOIN koncert k ON k.nastopajoci_id = n.id INNER JOIN ocena o ON o.koncert_id = k.id WHERE o.ocena=:ocena", nativeQuery = true)
+        List vrniOceno(int ocena);
+
+        @Query(value = "SELECT * FROM nastopajoci n INNER JOIN koncert k ON k.nastopajoci_id = n.id INNER JOIN ocena o ON o.koncert_id = k.id WHERE o.ocena>=:stevilo AND k.lokacija=:lokacija", nativeQuery = true)
+        List vrniOcenoLokacija(int stevilo, String lokacija);
+        //@Query(value = "SELECT * FROM taksi t INNER JOIN taksi_sluzba ts ON t.sluzba_id=ts.id INNER JOIN taksist tak ON tak.sluzba_id=ts.id", nativeQuery = true)
 
 }

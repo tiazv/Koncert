@@ -81,6 +81,10 @@ public class NastopajociController {
     }
 
     //kompleksna poizvedba (osnovni del 2)
+    /*@GetMapping("/vrninastopajoce")
+    public Iterable<Nastopajoci> vrniKoncerteDve() {
+        return (nastopajociDao.vrniKoncerteDve());
+    }*/
     @GetMapping("/vrni/stevilo/{stevilo}")
     public Iterable<Nastopajoci> vrniKoncerteDva(@PathVariable(name = "stevilo") int stevilo) {
         return (nastopajociDao.vrniKoncerteDva(stevilo));
@@ -89,5 +93,28 @@ public class NastopajociController {
     @GetMapping("/vrni/skupina/{skupina}")
     public Iterable<Nastopajoci> vrniKoncerteSkupine(@PathVariable(name = "skupina") boolean skupina) {
         return (nastopajociDao.vrniKoncerteSkupine(skupina));
+    }
+    /*@GetMapping("/vrni/koncert/{id}/nastopajoci/{skupina}")
+    public Iterable<Nastopajoci> vrniOcenoKoncerta(@PathVariable(name = "skupina") boolean skupina, @PathVariable(name = "id") Long id) {
+        return (nastopajociDao.vrniOcenoKoncerta(skupina, id));
+    }*/
+    /*@GetMapping("/vrni/koncertek/{stevilo}")
+    public Iterable<Nastopajoci> vrniKoncert(@PathVariable(name = "stevilo") int stevilo) {
+        return (nastopajociDao.vrniKoncert(stevilo));
+    }*/
+
+    @GetMapping("/vrni/koncertek/{stevilo}/{stevilo2}/{skupina}")
+    public Iterable<Nastopajoci> vrniKoncertOceno(@PathVariable(name = "stevilo") int stevilo, @PathVariable(name = "stevilo2") int stevilo2, @PathVariable(name = "skupina") boolean skupina) {
+        return (nastopajociDao.vrniKoncertOceno(stevilo, stevilo2, skupina));
+    }
+
+    @GetMapping("/vrnioceno/{ocena}")
+    public Iterable vrniOceno(@PathVariable(name = "ocena") int ocena) {
+        return (nastopajociDao.vrniOceno(ocena));
+    }
+
+    @GetMapping("/vrnioceno/{stevilo}/{lokacija}")
+    public Iterable vrniOcenoLokacija(@PathVariable(name = "stevilo") int stevilo, @PathVariable(name = "lokacija") String lokacija) {
+        return (nastopajociDao.vrniOcenoLokacija(stevilo, lokacija));
     }
 }
