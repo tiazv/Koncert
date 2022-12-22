@@ -69,7 +69,7 @@ public class SkupinaController {
     }
 
     //sprint2
-    @GetMapping("/vrniskupinossporocili/{stevilo}/{ime_skupine}")
+    @GetMapping("/vrniskupinosporocilo/{stevilo}/{ime_skupine}")
     public Iterable<Skupina> vrniSkupinoSSporocili(@PathVariable(name = "ime_skupine") String ime_skupine, @PathVariable(name = "stevilo") int stevilo){
         return skupinaDao.vrniSkupinoSSporocili(stevilo, ime_skupine);
     }

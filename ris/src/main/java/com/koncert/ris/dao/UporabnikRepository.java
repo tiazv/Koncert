@@ -31,4 +31,14 @@ public interface UporabnikRepository extends CrudRepository<Uporabnik, Long>{
     //manj kot x sporocil in y ocen ampak vec kot nic
     @Query("SELECT u FROM Uporabnik u WHERE size(u.Sporocilo)<:st_sporocil AND size(u.Sporocilo)>0 AND size(u.ocena)<:st_ocen AND size(u.ocena)>0")
     List<Uporabnik> vrniUporabnikaManjAmpakVsajEn(int st_sporocil, int st_ocen);
+
+
+    //sprint2
+    // registracija
+    @Query(value="SELECT * FROM uporabnik u WHERE u.email = :email ", nativeQuery=true)
+    List<Uporabnik> jeZePrijavljen(String email);
+
+    // prijava
+    @Query(value="SELECT * FROM uporabnik WHERE email = :email AND geslo = :geslo", nativeQuery=true)
+    List<Uporabnik> prijavi(String email, String geslo);
 }

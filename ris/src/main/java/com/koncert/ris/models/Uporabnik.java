@@ -88,6 +88,10 @@ public class Uporabnik {
         //throw new UnsupportedOperationException();
     }
 
+    public Uporabnik(String ime, String priimek, String email, String geslo, boolean admin){
+
+    }
+
     /**
      *
      * @param ocena
